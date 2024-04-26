@@ -75,7 +75,7 @@ export default function Signup() {
                 onClick={handleSignUp}
                 className="block w-full p-4 mb-4 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-blue-500 focus:border-blue-500"
               >
-                Log In
+                Sign Up
               </button>
             )}
           </div>

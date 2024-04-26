@@ -10,7 +10,7 @@ import { getUsersLikedMovies } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function UserListedMovies() {
-  const movies = useSelector((state) => state.netflix.movies);
+  const movies = useSelector((state) => state.cine.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);

@@ -12,10 +12,10 @@ import Slider from "../components/Slider";
 
 function TVShows() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const movies = useSelector((state) => state.netflix.movies);
-  const genres = useSelector((state) => state.netflix.genres);
-  const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
-  const dataLoading = useSelector((state) => state.netflix.dataLoading);
+  const movies = useSelector((state) => state.cine.movies);
+  const genres = useSelector((state) => state.cine.genres);
+  const genresLoaded = useSelector((state) => state.cine.genresLoaded);
+  const dataLoading = useSelector((state) => state.cine.dataLoading);
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();

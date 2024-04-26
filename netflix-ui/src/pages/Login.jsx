@@ -62,7 +62,7 @@ function Login() {
               </button>
             </div>
             <div className="text-white mt-4">
-              New to Netflix?{" "}
+              New to Cine Connect?{" "}
               <Link to='/signup' className="text-red-600">
                 Sign up now.
               </Link>

@@ -15,7 +15,7 @@ export default function Slider({ movies }) {
       />
       <CardSlider
         data={getMoviesFromRange(30, 40)}
-        title="Popular on Netflix"
+        title="Popular on Cine Connect"
       />
       <CardSlider data={getMoviesFromRange(40, 50)} title="Action Movies" />
       <CardSlider data={getMoviesFromRange(50, 60)} title="Epics" />

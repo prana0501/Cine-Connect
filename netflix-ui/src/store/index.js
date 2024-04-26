@@ -14,7 +14,7 @@ const initialState = {
   genres: [],
 };
 
-export const getGenres = createAsyncThunk("netflix/genres", async () => {
+export const getGenres = createAsyncThunk("cine/genres", async () => {
   const {
     data: { genres },
   } = await axios.get(
@@ -52,10 +52,10 @@ const getRawData = async (api, genres, paging = false) => {
 };
 
 export const fetchDataByGenre = createAsyncThunk(
-  "netflix/genre",
+  "cine/genre",
   async ({ genre, type }, thunkAPI) => {
     const {
-      netflix: { genres },
+      cine: { genres },
     } = thunkAPI.getState();
     return getRawData(
       `https://api.themoviedb.org/3/discover/${type}?api_key=3d39d6bfe362592e6aa293f01fbcf9b9&with_genres=${genre}`,
@@ -65,10 +65,10 @@ export const fetchDataByGenre = createAsyncThunk(
 );
 
 export const fetchMovies = createAsyncThunk(
-  "netflix/trending",
+  "cine/trending",
   async ({ type }, thunkAPI) => {
     const {
-      netflix: { genres },
+      cine: { genres },
     } = thunkAPI.getState();
     return getRawData(
       `${TMDB_BASE_URL}/trending/${type}/week?api_key=${API_KEY}`,
@@ -79,7 +79,7 @@ export const fetchMovies = createAsyncThunk(
 );
 
 export const getUsersLikedMovies = createAsyncThunk(
-  "netflix/getLiked",
+  "cine/getLiked",
   async (email) => {
     const {
       data: { movies },
@@ -92,7 +92,7 @@ export const getUsersLikedMovies = createAsyncThunk(
 );
 
 export const removeMovieFromLiked = createAsyncThunk(
-  "netflix/deleteLiked",
+  "cine/deleteLiked",
   async ({ movieId,movieName, email }) => {
     const {
       data: { movies },
@@ -105,8 +105,8 @@ export const removeMovieFromLiked = createAsyncThunk(
   }
 );
 
-const NetflixSlice = createSlice({
-  name: "Netflix",
+const CineSlice = createSlice({
+  name: "Cine",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(getGenres.fulfilled, (state, action) => {
@@ -130,8 +130,8 @@ const NetflixSlice = createSlice({
 
 export const store = configureStore({
   reducer: {
-    netflix: NetflixSlice.reducer,
+    cine: CineSlice.reducer,
   },
 });
 
-export const { setGenres, setMovies } = NetflixSlice.actions;
+export const { setGenres, setMovies } = CineSlice.actions;
